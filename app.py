@@ -8,13 +8,13 @@ st.title("Sistema de Cadastro de Funcionários 🏢")
 # CONEXÃO COM O GOOGLE SHEETS
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-# 1. Abrimos o formulário principal
+# 1. Abrir o formulário principal
 with st.form("cadastro_form"):
     
-    # 2. Criamos as abas e damos nomes a elas
+    # 2. Criar as abas e damos nomes a elas
     aba1, aba2, aba3 = st.tabs(["👤 Dados Pessoais", "💼 Dados Corporativos", "🏥 Saúde e Emergência"])
     
-    # 3. Preenchemos a primeira aba
+    # 3. Preencher a primeira aba com dados pessoais
     with aba1:
         st.subheader("Informações Pessoais")
         nome = st.text_input("Nome completo *")
@@ -22,7 +22,7 @@ with st.form("cadastro_form"):
         cpf = st.text_input("CPF")
         sexo = st.selectbox("Sexo", ["Masculino", "Feminino", "Outro", "Prefiro não informar"])
         
-    # 4. Preenchemos a segunda aba
+    # 4. Preencher a segunda aba com os dados profissionais
     with aba2:
         st.subheader("Informações Profissionais")
         cargo = st.text_input("Cargo")
@@ -30,14 +30,14 @@ with st.form("cadastro_form"):
         escolaridade = st.selectbox("Escolaridade", ["Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Pós-graduação"])
         salario = st.number_input("Salário Base (R$)", min_value=0.0, step=100.0)
         
-    # 5. Preenchemos a terceira aba
+    # 5. Preencher a terceira aba com dados da saúde
     with aba3:
         st.subheader("Informações de Saúde e Segurança")
         contato_emergencia = st.text_input("Nome do Contato de Emergência")
         telefone_emergencia = st.text_input("Telefone de Emergência")
         tipo_sanguineo = st.selectbox("Tipo Sanguíneo", ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Não sei"])
 
-    # 6. O botão de envio
+    # 6. Eviar
     st.markdown("---")
     submit_button = st.form_submit_button("Salvar Cadastro Completo")
 
