@@ -403,7 +403,7 @@ with st.container():
 # ============================================================
 # AÇÃO APÓS CLIQUE NO BOTÃO
 # ============================================================
- if submit_button:
+if submit_button:
     # Validações
     erros = []
     
@@ -435,36 +435,36 @@ with st.container():
             st.error(erro)
     else:
         # Criar dicionário com dados
-         novo_funcionario = {
+        novo_funcionario = {
             "Nome": nome.strip(),
-             "Nascimento": data_nascimento.strftime("%d/%m/%Y"),
+            "Nascimento": data_nascimento.strftime("%d/%m/%Y"),
             "CPF": cpf.strip(),
-             "Sexo": sexo,
+            "Sexo": sexo,
             "Cargo": cargo.strip(),
-             "Departamento": departamento,
-             "Escolaridade": escolaridade,
-             "Salario": float(salario),
+            "Departamento": departamento,
+            "Escolaridade": escolaridade,
+            "Salario": float(salario),
             "Contato_Emergencia": contato_emergencia.strip(),
             "Telefone_Emergencia": telefone_emergencia.strip(),
             "Tipo_Sanguineo": tipo_sanguineo,
             "Data_Cadastro": datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-         }
-         
-         try:
+        }
+        
+        try:
             # Ler dados existentes
-             dados_existentes = conn.read(worksheet="Dados", ttl=0)
-             
+            dados_existentes = conn.read(worksheet="Dados", ttl=0)
+            
             # Se a planilha está vazia, criar com headers
             if dados_existentes is None or len(dados_existentes) == 0:
                 dados_existentes = pd.DataFrame()
             
             # Adicionar nova linha
-             df_novo = pd.DataFrame([novo_funcionario])
-             dados_atualizados = pd.concat([dados_existentes, df_novo], ignore_index=True)
-             
+            df_novo = pd.DataFrame([novo_funcionario])
+            dados_atualizados = pd.concat([dados_existentes, df_novo], ignore_index=True)
+            
             # Salvar de volta
-             conn.update(worksheet="Dados", data=dados_atualizados)
-             
+            conn.update(worksheet="Dados", data=dados_atualizados)
+            
             # Mensagem de sucesso
             col1, col2, col3 = st.columns([1, 2, 1])
             with col2:
@@ -474,8 +474,8 @@ with st.container():
             # Informações do cadastro
             with st.expander("📋 Ver Dados Cadastrados"):
                 st.dataframe(df_novo, use_container_width=True)
-             
-         except Exception as e:
+            
+        except Exception as e:
             st.error(f"❌ Erro ao guardar na planilha: {str(e)}")
             st.error("Verifique se a planilha 'Dados' existe e está acessível")
 
