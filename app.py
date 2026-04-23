@@ -33,50 +33,55 @@ st.markdown("""
     /* Container principal */
     .main {
         background: transparent;
+        padding: 20px !important;
     }
 
     /* Título principal */
     h1 {
         color: white !important;
-        font-size: 2.5em !important;
-        font-weight: 700 !important;
+        font-size: 2.8em !important;
+        font-weight: 800 !important;
         text-align: center !important;
-        margin-bottom: 10px !important;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+        margin-bottom: 15px !important;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25) !important;
+        letter-spacing: -0.5px !important;
     }
 
     /* Subtítulo */
     .subtitle {
         text-align: center;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.1em;
-        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.2em;
+        margin-bottom: 35px;
         font-weight: 500;
-        margin-top: -10px;
+        margin-top: -5px;
+        letter-spacing: 0.3px;
     }
 
     /* Container do formulário */
     .form-container {
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(255, 255, 255, 0.98);
         border-radius: 15px;
         padding: 40px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Abas */
     .stTabs [role="tablist"] {
         background-color: #f1f5f9;
-        border-radius: 10px;
-        padding: 10px;
+        border-radius: 12px;
+        padding: 12px;
         gap: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .stTabs [role="tab"] {
         background-color: white !important;
         border: 2px solid #e2e8f0 !important;
-        border-radius: 8px !important;
-        padding: 12px 24px !important;
+        border-radius: 10px !important;
+        padding: 14px 24px !important;
         color: #475569 !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
@@ -89,18 +94,41 @@ st.markdown("""
     }
 
     .stTabs [role="tab"][aria-selected="true"] {
-        background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         border-color: #667eea !important;
         color: white !important;
         box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+    }
+    
+    .stTabs [role="tabpanel"] {
+        padding: 30px 0 !important;
+    }
+
+    /* Expandable containers */
+    .stExpander {
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+    }
+    
+    .streamlit-expanderHeader {
+        background-color: #f8fafc !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Dataframe */
+    .stDataFrame {
+        border-radius: 10px !important;
+        overflow: hidden !important;
     }
 
     /* Labels */
     label {
         color: #1e293b !important;
         font-weight: 600 !important;
-        font-size: 1em !important;
-        margin-bottom: 8px !important;
+        font-size: 1.05em !important;
+        margin-bottom: 10px !important;
+        letter-spacing: 0.3px !important;
     }
 
     /* Input fields */
@@ -109,7 +137,7 @@ st.markdown("""
     .stDateInput input {
         background-color: #f8fafc !important;
         border: 2px solid #e2e8f0 !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
         padding: 12px !important;
         font-size: 1em !important;
         transition: all 0.3s ease !important;
@@ -120,12 +148,13 @@ st.markdown("""
     .stDateInput input:focus {
         border-color: #667eea !important;
         box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        background-color: #ffffff !important;
     }
 
     /* Selectbox */
     .stSelectbox [data-baseweb="select"] {
         background-color: #f8fafc !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
     }
 
     /* Botão de submit */
@@ -133,17 +162,18 @@ st.markdown("""
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
         font-weight: 700 !important;
-        padding: 14px 40px !important;
+        padding: 16px 40px !important;
         border: none !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
         font-size: 1.1em !important;
         transition: all 0.3s ease !important;
         box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3) !important;
         width: 100% !important;
+        letter-spacing: 0.5px !important;
     }
 
     .stForm .stFormSubmitButton > button:hover {
-        transform: translateY(-2px) !important;
+        transform: translateY(-3px) !important;
         box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4) !important;
     }
 
@@ -155,27 +185,30 @@ st.markdown("""
     .stSuccess {
         background-color: #dcfce7 !important;
         border: 2px solid #16a34a !important;
-        border-radius: 8px !important;
-        padding: 16px !important;
+        border-radius: 10px !important;
+        padding: 18px !important;
         color: #15803d !important;
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2) !important;
     }
 
     /* Mensagens de erro */
     .stError {
         background-color: #fee2e2 !important;
         border: 2px solid #dc2626 !important;
-        border-radius: 8px !important;
-        padding: 16px !important;
+        border-radius: 10px !important;
+        padding: 18px !important;
         color: #b91c1c !important;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2) !important;
     }
 
     /* Mensagens de info */
     .stInfo {
         background-color: #e0e7ff !important;
         border: 2px solid #4f46e5 !important;
-        border-radius: 8px !important;
-        padding: 16px !important;
+        border-radius: 10px !important;
+        padding: 18px !important;
         color: #3730a3 !important;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
     }
 
     /* Subheader */
@@ -183,45 +216,72 @@ st.markdown("""
         color: #1e293b !important;
         font-weight: 700 !important;
         font-size: 1.3em !important;
-        margin-bottom: 20px !important;
-        padding-bottom: 10px !important;
+        margin-bottom: 25px !important;
+        margin-top: 25px !important;
+        padding-bottom: 15px !important;
         border-bottom: 3px solid #667eea !important;
     }
 
     /* Divider */
     hr {
-        border-color: #e2e8f0 !important;
+        border: none !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, #e2e8f0 20%, #e2e8f0 80%, transparent) !important;
         margin: 30px 0 !important;
     }
 
     /* Sidebar */
     .stSidebar {
         background-color: #f8fafc !important;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .stSidebar [data-testid="stMetricValue"] {
+        font-size: 1.8em !important;
     }
 
     /* Footer */
     .footer {
         text-align: center;
-        color: #94a3b8;
-        font-size: 0.9em;
-        margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px solid #e2e8f0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.95em;
+        margin-top: 50px;
+        padding: 30px 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .footer p {
+        margin: 0;
+        font-weight: 500;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
         h1 {
-            font-size: 1.8em !important;
+            font-size: 2em !important;
+        }
+        
+        .subtitle {
+            font-size: 1em !important;
+            margin-bottom: 25px !important;
         }
 
         .form-container {
             padding: 20px;
+            margin: 0 10px;
         }
 
         .stTabs [role="tab"] {
-            padding: 8px 16px !important;
+            padding: 10px 16px !important;
             font-size: 0.9em !important;
+        }
+        
+        .footer {
+            padding: 20px !important;
+            font-size: 0.85em !important;
         }
     }
 </style>
@@ -262,8 +322,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.markdown("# 🏢 Sistema de Cadastro de Funcionários")
     st.markdown('<div class="subtitle">Gerencie os dados dos seus colaboradores de forma segura e organizada</div>', unsafe_allow_html=True)
- 
- # CONEXÃO COM O GOOGLE SHEETS
+
+# CONEXÃO COM O GOOGLE SHEETS
 try:
     conn = st.connection("gsheets", type=GSheetsConnection)
 except Exception as e:
