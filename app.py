@@ -24,7 +24,7 @@ st.set_page_config(
 # ============================================================
 st.markdown("""
 <style>
-    /* Fundo gradiente */
+    /* Fundo gradiente premium */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -33,226 +33,263 @@ st.markdown("""
     /* Container principal */
     .main {
         background: transparent;
-        padding: 30px !important;
+        padding: 40px 20px !important;
     }
 
     /* Título principal */
     h1 {
         color: white !important;
-        font-size: 2.8em !important;
+        font-size: 3em !important;
         font-weight: 900 !important;
         text-align: center !important;
-        margin-bottom: 15px !important;
-        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3) !important;
-        letter-spacing: -0.5px !important;
+        margin-bottom: 12px !important;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        letter-spacing: -1px !important;
     }
 
     /* Subtítulo */
     .subtitle {
         text-align: center;
         color: rgba(255, 255, 255, 0.95);
-        font-size: 1.2em;
-        margin-bottom: 40px;
-        font-weight: 500;
-        letter-spacing: 0.3px;
+        font-size: 1.25em;
+        margin-bottom: 45px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
     }
 
-    /* Container do formulário - Glassmorphism Simples */
+    /* Container do formulário - Premium Card */
     .form-container {
-        background: rgba(255, 255, 255, 0.96);
-        border-radius: 18px;
-        padding: 45px 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 25px;
+        padding: 60px 50px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
-    /* Abas */
+    /* Abas - Design Premium */
     .stTabs [role="tablist"] {
-        background: #f1f5f9;
-        border-radius: 12px;
-        padding: 12px;
-        gap: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 100%);
+        border-radius: 15px;
+        padding: 18px;
+        gap: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(8px);
     }
 
     .stTabs [role="tab"] {
-        background-color: white !important;
-        border: 2px solid #e2e8f0 !important;
-        border-radius: 10px !important;
-        padding: 12px 24px !important;
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%) !important;
+        border: 2px solid rgba(102, 126, 234, 0.2) !important;
+        border-radius: 12px !important;
+        padding: 14px 28px !important;
         color: #475569 !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
+        font-weight: 700 !important;
+        transition: all 0.35s ease !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
     }
 
     .stTabs [role="tab"]:hover {
-        background-color: #f8fafc !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.08) 100%) !important;
         border-color: #667eea !important;
         color: #667eea !important;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2) !important;
     }
 
     .stTabs [role="tab"][aria-selected="true"] {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        border-color: transparent !important;
+        border-color: #667eea !important;
         color: white !important;
-        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.25) !important;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4) !important;
     }
     
     .stTabs [role="tabpanel"] {
-        padding: 25px 0 !important;
+        padding: 35px 0 !important;
     }
 
-    /* Expandable containers */
-    .stExpander {
-        border: 2px solid #e2e8f0 !important;
-        border-radius: 10px !important;
-        background-color: #f8fafc !important;
-    }
-    
-    .streamlit-expanderHeader {
-        background-color: #f0f4f8 !important;
-        border-radius: 8px !important;
-    }
-
-    /* Labels */
+    /* Labels melhorados */
     label {
-        color: #1e293b !important;
-        font-weight: 600 !important;
-        font-size: 1.02em !important;
-        margin-bottom: 8px !important;
+        color: #1a202c !important;
+        font-weight: 700 !important;
+        font-size: 1.05em !important;
+        margin-bottom: 12px !important;
+        letter-spacing: 0.3px !important;
+        display: block !important;
     }
 
-    /* Input fields */
+    /* Input fields - Premium Design */
     .stTextInput input,
     .stNumberInput input,
     .stDateInput input {
-        background-color: #f8fafc !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
         border: 2px solid #e2e8f0 !important;
-        border-radius: 10px !important;
-        padding: 12px 14px !important;
-        font-size: 1em !important;
-        transition: all 0.3s ease !important;
+        border-radius: 12px !important;
+        padding: 16px 18px !important;
+        font-size: 1.02em !important;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        font-weight: 500 !important;
+        color: #1a202c !important;
+    }
+
+    .stTextInput input::placeholder,
+    .stNumberInput input::placeholder,
+    .stDateInput input::placeholder {
+        color: #94a3b8 !important;
     }
 
     .stTextInput input:focus,
     .stNumberInput input:focus,
     .stDateInput input:focus {
         border-color: #667eea !important;
-        background-color: #ffffff !important;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15), 0 10px 30px rgba(102, 126, 234, 0.1) !important;
     }
 
-    /* Selectbox */
+    /* Selectbox - Premium */
     .stSelectbox [data-baseweb="select"] {
-        background-color: #f8fafc !important;
-        border-radius: 10px !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+        border-radius: 12px !important;
+        border: 2px solid #e2e8f0 !important;
+        transition: all 0.35s ease !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"]:hover {
+        border-color: #667eea !important;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15) !important;
     }
 
-    /* Botão de submit */
+    /* Botão de submit - Premium */
     .stForm .stFormSubmitButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
-        font-weight: 700 !important;
-        padding: 14px 40px !important;
+        font-weight: 800 !important;
+        padding: 18px 50px !important;
         border: none !important;
-        border-radius: 10px !important;
-        font-size: 1.1em !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3) !important;
+        border-radius: 12px !important;
+        font-size: 1.12em !important;
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35) !important;
         width: 100% !important;
+        letter-spacing: 0.6px !important;
+        cursor: pointer !important;
     }
 
     .stForm .stFormSubmitButton > button:hover {
-        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 18px 50px rgba(102, 126, 234, 0.5), 0 0 40px rgba(102, 126, 234, 0.2) !important;
+        transform: translateY(-2px) !important;
     }
 
     .stForm .stFormSubmitButton > button:active {
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2) !important;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3) !important;
+        transform: translateY(0) !important;
     }
 
     /* Mensagens de sucesso */
     .stSuccess {
-        background-color: #dcfce7 !important;
-        border: 2px solid #16a34a !important;
-        border-radius: 10px !important;
-        padding: 16px !important;
-        color: #15803d !important;
-        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15) !important;
+        background: linear-gradient(135deg, #dcfce7 0%, #c6f6d5 100%) !important;
+        border: 2px solid #22c55e !important;
+        border-radius: 12px !important;
+        padding: 18px !important;
+        color: #166534 !important;
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2) !important;
+        font-weight: 600 !important;
     }
 
     /* Mensagens de erro */
     .stError {
-        background-color: #fee2e2 !important;
-        border: 2px solid #dc2626 !important;
-        border-radius: 10px !important;
-        padding: 16px !important;
-        color: #b91c1c !important;
-        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15) !important;
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important;
+        border: 2px solid #ef4444 !important;
+        border-radius: 12px !important;
+        padding: 18px !important;
+        color: #991b1b !important;
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important;
+        font-weight: 600 !important;
     }
 
     /* Mensagens de info */
     .stInfo {
-        background-color: #e0e7ff !important;
-        border: 2px solid #4f46e5 !important;
-        border-radius: 10px !important;
-        padding: 16px !important;
+        background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%) !important;
+        border: 2px solid #6366f1 !important;
+        border-radius: 12px !important;
+        padding: 18px !important;
         color: #3730a3 !important;
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2) !important;
+        font-weight: 600 !important;
     }
 
     /* Subheader */
     h3 {
-        color: #1e293b !important;
-        font-weight: 700 !important;
-        font-size: 1.25em !important;
-        margin-bottom: 20px !important;
-        margin-top: 20px !important;
-        padding-bottom: 10px !important;
+        color: #1a202c !important;
+        font-weight: 800 !important;
+        font-size: 1.35em !important;
+        margin-bottom: 28px !important;
+        margin-top: 28px !important;
+        padding-bottom: 15px !important;
         border-bottom: 3px solid #667eea !important;
     }
 
     /* Divider */
     hr {
         border: none !important;
-        height: 1px !important;
-        background: #e2e8f0 !important;
-        margin: 25px 0 !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, #e2e8f0 20%, #e2e8f0 80%, transparent) !important;
+        margin: 35px 0 !important;
+    }
+
+    /* Expandable containers */
+    .stExpander {
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    .streamlit-expanderHeader {
+        background: linear-gradient(90deg, #f0f4f8 0%, #e8ecf1 100%) !important;
+        border-radius: 10px !important;
     }
 
     /* Sidebar */
     .stSidebar {
-        background-color: #f8fafc !important;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.08) !important;
     }
 
     /* Footer */
     .footer {
         text-align: center;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 0.9em;
-        margin-top: 40px;
-        padding: 25px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 0.95em;
+        margin-top: 60px;
+        padding: 30px 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.15);
+        font-weight: 500;
+        letter-spacing: 0.3px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
         h1 {
-            font-size: 1.8em !important;
+            font-size: 2.2em !important;
         }
         
         .subtitle {
-            font-size: 0.95em !important;
-            margin-bottom: 25px !important;
+            font-size: 1em !important;
+            margin-bottom: 30px !important;
         }
 
         .form-container {
-            padding: 20px;
+            padding: 30px 20px;
+            border-radius: 20px;
         }
 
         .stTabs [role="tab"] {
-            padding: 8px 16px !important;
-            font-size: 0.85em !important;
+            padding: 10px 18px !important;
+            font-size: 0.9em !important;
+        }
+
+        .stTabs [role="tablist"] {
+            padding: 12px;
         }
     }
 </style>
