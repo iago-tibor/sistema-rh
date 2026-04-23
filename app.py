@@ -1,9 +1,9 @@
 
- import streamlit as st
- import datetime
- import pandas as pd
- from streamlit_gsheets import GSheetsConnection
- 
+import streamlit as st
+import datetime
+import pandas as pd
+from streamlit_gsheets import GSheetsConnection
+
 # ============================================================
 # CONFIGURAÇÃO DA PÁGINA E TEMA
 # ============================================================
