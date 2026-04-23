@@ -24,7 +24,7 @@ st.set_page_config(
 # ============================================================
 st.markdown("""
 <style>
-    /* Fundo gradiente da página */
+    /* Fundo gradiente */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -33,17 +33,17 @@ st.markdown("""
     /* Container principal */
     .main {
         background: transparent;
-        padding: 20px !important;
+        padding: 30px !important;
     }
 
     /* Título principal */
     h1 {
         color: white !important;
         font-size: 2.8em !important;
-        font-weight: 800 !important;
+        font-weight: 900 !important;
         text-align: center !important;
         margin-bottom: 15px !important;
-        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25) !important;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3) !important;
         letter-spacing: -0.5px !important;
     }
 
@@ -52,25 +52,24 @@ st.markdown("""
         text-align: center;
         color: rgba(255, 255, 255, 0.95);
         font-size: 1.2em;
-        margin-bottom: 35px;
+        margin-bottom: 40px;
         font-weight: 500;
-        margin-top: -5px;
         letter-spacing: 0.3px;
     }
 
-    /* Container do formulário */
+    /* Container do formulário - Glassmorphism Simples */
     .form-container {
-        background-color: rgba(255, 255, 255, 0.98);
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.96);
+        border-radius: 18px;
+        padding: 45px 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
     /* Abas */
     .stTabs [role="tablist"] {
-        background-color: #f1f5f9;
+        background: #f1f5f9;
         border-radius: 12px;
         padding: 12px;
         gap: 10px;
@@ -81,54 +80,47 @@ st.markdown("""
         background-color: white !important;
         border: 2px solid #e2e8f0 !important;
         border-radius: 10px !important;
-        padding: 14px 24px !important;
+        padding: 12px 24px !important;
         color: #475569 !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
     }
 
     .stTabs [role="tab"]:hover {
-        background-color: #f0f4f8 !important;
+        background-color: #f8fafc !important;
         border-color: #667eea !important;
         color: #667eea !important;
     }
 
     .stTabs [role="tab"][aria-selected="true"] {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        border-color: #667eea !important;
+        border-color: transparent !important;
         color: white !important;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.25) !important;
     }
     
     .stTabs [role="tabpanel"] {
-        padding: 30px 0 !important;
+        padding: 25px 0 !important;
     }
 
     /* Expandable containers */
     .stExpander {
         border: 2px solid #e2e8f0 !important;
         border-radius: 10px !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+        background-color: #f8fafc !important;
     }
     
     .streamlit-expanderHeader {
-        background-color: #f8fafc !important;
-        border-radius: 10px !important;
-    }
-    
-    /* Dataframe */
-    .stDataFrame {
-        border-radius: 10px !important;
-        overflow: hidden !important;
+        background-color: #f0f4f8 !important;
+        border-radius: 8px !important;
     }
 
     /* Labels */
     label {
         color: #1e293b !important;
         font-weight: 600 !important;
-        font-size: 1.05em !important;
-        margin-bottom: 10px !important;
-        letter-spacing: 0.3px !important;
+        font-size: 1.02em !important;
+        margin-bottom: 8px !important;
     }
 
     /* Input fields */
@@ -138,7 +130,7 @@ st.markdown("""
         background-color: #f8fafc !important;
         border: 2px solid #e2e8f0 !important;
         border-radius: 10px !important;
-        padding: 12px !important;
+        padding: 12px 14px !important;
         font-size: 1em !important;
         transition: all 0.3s ease !important;
     }
@@ -147,8 +139,8 @@ st.markdown("""
     .stNumberInput input:focus,
     .stDateInput input:focus {
         border-color: #667eea !important;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
         background-color: #ffffff !important;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
     }
 
     /* Selectbox */
@@ -162,23 +154,21 @@ st.markdown("""
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
         font-weight: 700 !important;
-        padding: 16px 40px !important;
+        padding: 14px 40px !important;
         border: none !important;
         border-radius: 10px !important;
         font-size: 1.1em !important;
         transition: all 0.3s ease !important;
         box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3) !important;
         width: 100% !important;
-        letter-spacing: 0.5px !important;
     }
 
     .stForm .stFormSubmitButton > button:hover {
-        transform: translateY(-3px) !important;
         box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4) !important;
     }
 
     .stForm .stFormSubmitButton > button:active {
-        transform: translateY(0px) !important;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2) !important;
     }
 
     /* Mensagens de sucesso */
@@ -186,9 +176,9 @@ st.markdown("""
         background-color: #dcfce7 !important;
         border: 2px solid #16a34a !important;
         border-radius: 10px !important;
-        padding: 18px !important;
+        padding: 16px !important;
         color: #15803d !important;
-        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15) !important;
     }
 
     /* Mensagens de erro */
@@ -196,9 +186,9 @@ st.markdown("""
         background-color: #fee2e2 !important;
         border: 2px solid #dc2626 !important;
         border-radius: 10px !important;
-        padding: 18px !important;
+        padding: 16px !important;
         color: #b91c1c !important;
-        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15) !important;
     }
 
     /* Mensagens de info */
@@ -206,81 +196,62 @@ st.markdown("""
         background-color: #e0e7ff !important;
         border: 2px solid #4f46e5 !important;
         border-radius: 10px !important;
-        padding: 18px !important;
+        padding: 16px !important;
         color: #3730a3 !important;
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15) !important;
     }
 
     /* Subheader */
     h3 {
         color: #1e293b !important;
         font-weight: 700 !important;
-        font-size: 1.3em !important;
-        margin-bottom: 25px !important;
-        margin-top: 25px !important;
-        padding-bottom: 15px !important;
+        font-size: 1.25em !important;
+        margin-bottom: 20px !important;
+        margin-top: 20px !important;
+        padding-bottom: 10px !important;
         border-bottom: 3px solid #667eea !important;
     }
 
     /* Divider */
     hr {
         border: none !important;
-        height: 2px !important;
-        background: linear-gradient(90deg, transparent, #e2e8f0 20%, #e2e8f0 80%, transparent) !important;
-        margin: 30px 0 !important;
+        height: 1px !important;
+        background: #e2e8f0 !important;
+        margin: 25px 0 !important;
     }
 
     /* Sidebar */
     .stSidebar {
         background-color: #f8fafc !important;
-        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    .stSidebar [data-testid="stMetricValue"] {
-        font-size: 1.8em !important;
     }
 
     /* Footer */
     .footer {
         text-align: center;
         color: rgba(255, 255, 255, 0.9);
-        font-size: 0.95em;
-        margin-top: 50px;
-        padding: 30px 40px;
-        border-top: 2px solid rgba(255, 255, 255, 0.1);
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-    }
-    
-    .footer p {
-        margin: 0;
-        font-weight: 500;
+        font-size: 0.9em;
+        margin-top: 40px;
+        padding: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
         h1 {
-            font-size: 2em !important;
+            font-size: 1.8em !important;
         }
         
         .subtitle {
-            font-size: 1em !important;
+            font-size: 0.95em !important;
             margin-bottom: 25px !important;
         }
 
         .form-container {
             padding: 20px;
-            margin: 0 10px;
         }
 
         .stTabs [role="tab"] {
-            padding: 10px 16px !important;
-            font-size: 0.9em !important;
-        }
-        
-        .footer {
-            padding: 20px !important;
+            padding: 8px 16px !important;
             font-size: 0.85em !important;
         }
     }
